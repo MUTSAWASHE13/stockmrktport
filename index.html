@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>PORTFOLIO SUMMARY // ANALYTICAL PANEL</h1>
+    <a href="admin.html">Access Admin Panel →</a>
+  </header>
+
+  <!-- Core Analytics Metric Grid Grid -->
+  <div class="dashboard-grid unique-four-cols">
+    <div class="tech-card">
+      <div class="card-label">Total Invested Cash</div>
+      <div class="currency-split">
+        <div id="total-invested-usd" class="card-value">USD $0.00</div>
+        <div id="total-invested-zwg" class="card-value text-zwg">ZWG 0.00</div>
+      </div>
+    </div>
+    
+    <div class="tech-card green">
+      <div class="card-label">Net Dividend Cash</div>
+      <div class="currency-split">
+        <div id="total-dividends-usd" class="card-value">USD $0.00</div>
+        <div id="total-dividends-zwg" class="card-value text-zwg">ZWG 0.00</div>
+      </div>
+    </div>
+
+    <div class="tech-card active-blue">
+      <div class="card-label">Current Market Value & ROI</div>
+      <div class="currency-split">
+        <div id="cmv-usd" class="card-value">USD $0.00 <span id="roi-usd" class="roi-badge">--%</span></div>
+        <div id="cmv-zwg" class="card-value text-zwg">ZWG 0.00 <span id="roi-zwg" class="roi-badge">--%</span></div>
+      </div>
+    </div>
+
+    <div class="tech-card orange">
+      <div class="card-label">Uninvested Broker Wallet</div>
+      <div class="currency-split">
+        <div id="wallet-usd" class="card-value">USD $0.00</div>
+        <div id="wallet-zwg" class="card-value text-zwg">ZWG 0.00</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Asset</th>
+          <th>Exchange</th>
+          <th>Currency</th>
+          <th>Shares Held</th>
+          <th>Average Cost Basis (ACB)</th>
+        </tr>
+      </thead>
+      <tbody id="assets-target"></tbody>
+    </table>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

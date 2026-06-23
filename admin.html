@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin // Mutation Zone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>DATA MUTATION ZONE</h1>
+    <a href="index.html">← Return to Dashboard</a>
+  </header>
+
+  <div class="split-layout">
+    <section class="tech-card">
+      <h3>Log System Transaction</h3>
+      <form id="tx-form">
+        <div class="form-group">
+          <label>Ticker (e.g. TIGERE)</label>
+          <input type="text" id="tx-ticker" required>
+        </div>
+        <div class="form-group">
+          <label>Exchange</label>
+          <select id="tx-exchange">
+            <option value="ZSE">ZSE (Trades in ZWG)</option>
+            <option value="VFEX">VFEX (Trades in USD)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Transaction Type</label>
+          <select id="tx-type">
+            <option value="BUY">BUY</option>
+            <option value="SELL">SELL</option>
+            <option value="DIVIDEND">DIVIDEND</option>
+            <option value="DRIP">DRIP (Auto-Reinvestment)</option>
+          </select>
+        </div>
+        <div class="form-group" id="div-currency-container" style="display:none;">
+          <label>Dividend Payout Currency (e.g., Tigere pays USD on ZSE)</label>
+          <select id="tx-div-currency">
+            <option value="USD">USD</option>
+            <option value="ZWG">ZWG</option>
+          </select>
+        </div>
+        <div class="form-group" id="hold-period-container" style="display:none;">
+          <label>Holding Period (Months)</label>
+          <input type="number" id="tx-holding" value="0">
+        </div>
+        <div class="form-group" id="qty-container">
+          <label id="qty-label">Quantity (Shares)</label>
+          <input type="number" id="tx-qty" value="0" step="any">
+        </div>
+        <div class="form-group">
+          <label id="price-label">Price Per Share / Gross Dividend Rate</label>
+          <input type="number" id="tx-price" value="0" step="any" required>
+        </div>
+        <button type="submit" class="btn-tech">Commit Data</button>
+      </form>
+      
+      <br><hr style="border-color: var(--border-glow);"><br>
+      
+      <h3>Manual Market Pricing (CMV Entry)</h3>
+      <form id="price-form">
+        <div class="form-group">
+          <label>Ticker Profile</label>
+          <input type="text" id="price-ticker" required>
+        </div>
+        <div class="form-group">
+          <label>Current Live Price</label>
+          <input type="number" id="price-current" step="any" required>
+        </div>
+        <button type="submit" class="btn-tech" style="background:var(--accent-neon);">Update Market Valuation</button>
+      </form>
+    </section>
+
+    <section>
+      <h3>Transaction Logs</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Asset</th>
+              <th>Type</th>
+              <th>Exchange</th>
+              <th>Net Amount</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="admin-tx-target"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
